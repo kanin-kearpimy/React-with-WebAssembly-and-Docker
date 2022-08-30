@@ -1,8 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
+import wasmModule from './wasm/dist/my-module';
 import './App.css';
 
+
 function App() {
+  let wasm
+  wasmModule().then((output: any) => wasm = output)
   return (
     <div className="App">
       <header className="App-header">
