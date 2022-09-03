@@ -16,7 +16,7 @@ docker build -t docker-build-wasm .
 
 2. Run container
 ```bash
-docker run --name docker-build-wasm-container -p 80:8888 docker-build-wasm 
+docker run --name docker-build-wasm-container -p 8888:80 docker-build-wasm 
 ```
 
 3. Go to [http://localhost:8888](http://localhost:8888) in browser
