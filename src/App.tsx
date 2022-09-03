@@ -1,10 +1,15 @@
-import wasmModule from './wasm/dist/my-module';
+import { useEffect } from 'react';
+import myModule from './wasm/dist/my-module'
 import './App.css';
 
-
 function App() {
-  let wasm
-  wasmModule().then((output: any) => wasm = output)
+  useEffect(() => {
+    myModule().then((output: any) => {
+      console.log(output.plus(5, 10))
+    })
+  }, [])
+
+  
   return (
     <div className="App">
       <header className="App-header">

@@ -16,18 +16,20 @@ echo "============================================="
     ${OPTIMIZE} \
     --bind \
     --no-entry \
+    -s SINGLE_FILE=1 \
     -s STRICT=1 \
     -s ALLOW_MEMORY_GROWTH=1 \
     -s MALLOC=emmalloc \
     -s MODULARIZE=1 \
     -s EXPORT_ES6=1 \
+    -s ENVIRONMENT=web \
     -o ./my-module.js \
     src/wasm/my-module.cpp
 
     # Create output folder
     mkdir -p src/wasm/dist
     # Move artifacts
-    mv my-module.{js,wasm} src/wasm/dist
+    mv my-module.js src/wasm/dist
 )
 echo "============================================="
 echo "Compiling wasm bindings done"
