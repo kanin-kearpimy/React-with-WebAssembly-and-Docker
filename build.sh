@@ -24,12 +24,12 @@ echo "============================================="
     -s EXPORT_ES6=1 \
     -s ENVIRONMENT=web \
     -o ./my-module.js \
-    src/wasm/my-module.cpp
+    webassembly/my-module.cpp
 
     # Create output folder
-    mkdir -p src/wasm/dist
+    mkdir -p src/wasm
     # Move artifacts
-    mv my-module.js src/wasm/dist
+    mv my-module.js src/wasm/
 )
 echo "============================================="
 echo "Compiling wasm bindings done"

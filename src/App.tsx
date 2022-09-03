@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import myModule from './wasm/dist/my-module'
+import myModule from './wasm/my-module'
 import './App.css';
 
 function App() {
