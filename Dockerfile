@@ -15,4 +15,4 @@ RUN npm run build
 FROM nginx:1.18-alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=codebase /build/build/ /frontend/build/
-EXPOSE 80
+EXPOSE 8080

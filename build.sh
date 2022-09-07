@@ -10,6 +10,9 @@ export CXXFLAGS="${OPTIMIZE}"
 echo "============================================="
 echo "Compiling wasm bindings"
 echo "============================================="
+for filename in "webassembly/"*.cpp; 
+do
+file=$(basename "$filename" ".cpp")
 (
     # Compile C/C++ code
     emcc \
@@ -23,14 +26,16 @@ echo "============================================="
     -s MODULARIZE=1 \
     -s EXPORT_ES6=1 \
     -s ENVIRONMENT=web \
-    -o ./my-module.js \
-    webassembly/my-module.cpp
+    -o ./${file}.js \
+    webassembly/${file}.cpp
 
     # Create output folder
     mkdir -p src/wasm
     # Move artifacts
-    mv my-module.js src/wasm/
+    mv ${file}.js src/wasm/
 )
+echo "${file} compiled!";
+done
 echo "============================================="
 echo "Compiling wasm bindings done"
 echo "============================================="
